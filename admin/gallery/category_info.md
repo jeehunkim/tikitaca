@@ -1,8 +1,12 @@
+---
+description: 갤러리 1차 카테고리 정보
+---
+
 # CATEGORY\_INFO
 
-{% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
+{% api-method method="post" host="https://api.tikita.ca" path="/v1/admin/gallery/category" %}
 {% api-method-summary %}
-Get Cakes
+1차 카테고리 등록 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -11,27 +15,37 @@ This endpoint allows you to get free cakes.
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" %}
-ID of the cake to get, for free of course.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
+JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="recipe" type="string" %}
-The API will do its best to find a cake matching the provided recipe.
+{% api-method-body-parameters %}
+{% api-method-parameter name="history" type="object" required=false %}
+히스토리 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="gluten" type="boolean" %}
-Whether the cake should be gluten-free or not.
+{% api-method-parameter name="sort\_no" type="integer" required=false %}
+노출순서 
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+
+{% api-method-parameter name="is\_use" type="boolean" required=true %}
+사용유무 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="make\_date" type="string" required=false %}
+생성일 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="category\_name" type="string" required=true %}
+카테고리명 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="category\_code" type="string" required=true %}
+카테고리 코드 
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -41,22 +55,146 @@ Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
-
-```
-{    "message": "Ain't no cake like that."}
+{
+    "rstCode": "200",
+    "rstMsg": "갤러리 카테고리 정보 등록 되었습니다"
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+```text
+{
+    "UUID": UUID,
+    "category_code": "AE",
+    "category_name": "유머 ",
+    "make_date" : YYYY-MM-DD hh:mm:ss,
+    "is_use" : 1,
+    "sort_no" : 1,
+    "history" : {
+                    "history_memo" : 1,
+                    "history_date" : YYYY-MM-DD hh:mm:ss,
+                    "history_manager" : "SU"
+                }                
+}
+```
+
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/gallery/category/:UUID" %}
+{% api-method-summary %}
+1차 카테고리 수정 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+JWT
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="history" type="object" required=false %}
+히스토리 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="sort\_no" type="string" required=false %}
+노출순서 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="is\_use" type="string" required=false %}
+사용유무 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="category\_name" type="string" required=true %}
+카테고리 이름  
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "rstCode": "200",
+    "rstMsg": "카테고리 정보 수정 되었습니다."
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+```text
+/* example */
+{
+    "category_name" : "음란물 신고 ",
+    "is_use" : 0,
+    "sort_no" : 0,    
+    "history" : {
+                    "history_code" : 0,
+                    "history_date" : YYYY-MM-DD hh:mm:ss,
+                    "history_manager" : "SU"
+                }
+}
+```
+
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/gallery/category/:UUID" %}
+{% api-method-summary %}
+1차 카테고리 정보 호출 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+JWT
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "rstCode": "200",
+    "category_code": "AE",
+    "category_name": "유머 ",
+    "make_date" : YYYY-MM-DD hh:mm:ss,
+    "is_use" : 1,
+    "sort_no" : 1,
+    "history" : {
+                    "history_memo" : 1,
+                    "history_date" : YYYY-MM-DD hh:mm:ss,
+                    "history_manager" : "SU"
+                }                
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+```text
+https://api.tikita.ca/v1/admin/gallery/category/b948e2be-9b7a-4963-bcff-34cee7c2e38a
+```
 
 
 
