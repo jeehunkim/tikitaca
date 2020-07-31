@@ -298,7 +298,7 @@ https://api.tikita.ca/v1/member/account/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 
 {% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/account/checkdate/:UUID" %}
 {% api-method-summary %}
-:최종로그인/비밀번호 변경일 업데이트 
+최종로그인/비밀번호 변경일 업데이트 
 {% endapi-method-summary %}
 
 {% api-method-description %}
