@@ -10,7 +10,7 @@ description: '1:1 문의유형(카테고리)'
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint allows you to get free cakes.
+
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -150,7 +150,7 @@ JWT
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=false %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}

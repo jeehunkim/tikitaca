@@ -10,7 +10,7 @@ description: 갤러리 1차 카테고리 정보
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint allows you to get free cakes.
+
 {% endapi-method-description %}
 
 {% api-method-spec %}

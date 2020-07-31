@@ -14,3 +14,8 @@
   * [INQUIRY\_CATEGORY](admin/inquiry/inquiry_category.md)
   * [INQUIRY\_ANSWER](admin/inquiry/inquiry_answer.md)
 
+## MEMBER
+
+* [ACCOUNT](member/account/README.md)
+  * [MEMBER\_INFO](member/account/member_info.md)
+

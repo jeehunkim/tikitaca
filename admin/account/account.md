@@ -10,13 +10,13 @@ description: 관리자 계정
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint allows you to get free cakes.
+
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=false %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
 jwt
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
