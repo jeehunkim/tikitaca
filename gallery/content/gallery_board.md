@@ -110,6 +110,7 @@ Cake successfully retrieved.
                     "vs_count" : 3,
                     "vs_title" : ["제목1","제목2","제목3"],
                     "vs_image" : ["img1.jpg","img2.jpg","img3.jpg"],
+                    "vs_poll_count": [0,0,0],
                     "vs_start" : YYYY-MM-DD hh:mm:ss,
                     "vs_end" : YYYY-MM-DD hh:mm:ss
                     },    
@@ -124,7 +125,7 @@ Cake successfully retrieved.
 
 {% api-method method="patch" host="https://api.tikita.ca" path="/v1/gallery/:gallery\_UUID/:content\_UUID" %}
 {% api-method-summary %}
-게시글 수
+게시글 수정 
 {% endapi-method-summary %}
 
 {% api-method-description %}

@@ -23,6 +23,8 @@
 ## GALLERY
 
 * [CONTENT](gallery/content/README.md)
+  * [GALLERY\_REPLY](gallery/content/gallery_reply.md)
+  * [GALLERY\_POLL](gallery/content/gallery_poll.md)
   * [GALLERY\_BOARD](gallery/content/gallery_board.md)
 * [META\_INFO](gallery/meta_info.md)
 
