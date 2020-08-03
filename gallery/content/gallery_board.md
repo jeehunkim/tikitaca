@@ -1,8 +1,12 @@
+---
+description: 게시글
+---
+
 # GALLERY\_BOARD
 
-{% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
+{% api-method method="post" host="https://api.tikita.ca" path="/v1/gallery/:gallery\_UUID" %}
 {% api-method-summary %}
-Get Cakes
+게시글 작성 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -11,27 +15,65 @@ This endpoint allows you to get free cakes.
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" %}
-ID of the cake to get, for free of course.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
+JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
-{% api-method-query-parameters %}
-{% api-method-parameter name="recipe" type="string" %}
-The API will do its best to find a cake matching the provided recipe.
+{% api-method-body-parameters %}
+{% api-method-parameter name="write\_env" type="string" required=false %}
+작성환경 웹/모바일웹 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="gluten" type="boolean" %}
-Whether the cake should be gluten-free or not.
+{% api-method-parameter name="status\_flag" type="integer" required=false %}
+상태값 정상/보류/삭제/관리자삭제 등 
 {% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
+
+{% api-method-parameter name="regist\_ip" type="string" required=false %}
+등록 아이피 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="view\_count" type="string" required=false %}
+조회수 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="write\_date" type="string" required=false %}
+작성일 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="writer" type="string" required=false %}
+작성자 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="only\_vs" type="object" required=false %}
+VS전용 경쟁항목수/항목타이틀 등 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="action\_count" type="object" required=false %}
+좋아요/싫어요/신고 카운트 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="contents" type="string" required=false %}
+내용 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="title" type="string" required=false %}
+제목 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="fixed\_flag" type="string" required=false %}
+공지일 경우 상단고정 유무 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="content\_flag" type="integer" required=false %}
+게시글 형식 공지/일반/VS
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="content\_UUID" type="string" required=false %}
+게시글 일련번호 
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -41,22 +83,180 @@ Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
-
-```
-{    "message": "Ain't no cake like that."}
+{
+    "rstCode": "200",
+    "rstMsg": "게시글이 등록 되었습니다. "
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
 
+```text
+{
+    "gallery_UUID": UUID,
+    "content_UUID": UUID,
+    "content_flag": 0,
+    "fixed_flag": 0,    
+    "title": "빨간당",
+    "contents": "빨간당 소개 내",
+    "action_count" : {
+                    "like" : 0,
+                    "bad" : 0,
+                    "police" : 0
+                    },
+    "only_vs" : {
+                    "vs_count" : 3,
+                    "vs_title" : ["제목1","제목2","제목3"],
+                    "vs_image" : ["img1.jpg","img2.jpg","img3.jpg"],
+                    "vs_start" : YYYY-MM-DD hh:mm:ss,
+                    "vs_end" : YYYY-MM-DD hh:mm:ss
+                    },    
+    "writer": "nob98",
+    "write_date": YYYY-MM-DD hh:mm:ss,
+    "view_count": 0,
+    "regist_ip": "127.0.0.1",
+    "status_flag": 0,
+    "write_env": 0
+}
+```
 
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/gallery/:gallery\_UUID/:content\_UUID" %}
+{% api-method-summary %}
+게시글 수
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+JWT
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="status\_flag" type="integer" required=false %}
+상태값 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="only\_vs" type="object" required=false %}
+VS전용 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="contents" type="string" required=false %}
+내용 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="title" type="string" required=false %}
+제목 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="fixed\_flag" type="string" required=false %}
+공지일 경우 상단 고정 유무 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="content\_flag" type="string" required=false %}
+게시글 형식 
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "rstCode": "200",
+    "rstMsg": "게시글이 수 되었습니다. "
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+```text
+{
+    "content_flag": 0,
+    "fixed_flag": 0,    
+    "title": "빨간당",
+    "contents": "빨간당 소개 내",
+    "only_vs" : {
+                    "vs_count" : 3,
+                    "vs_title" : ["제목1","제목2","제목3"],
+                    "vs_image" : ["img1.jpg","img2.jpg","img3.jpg"],
+                    "vs_start" : YYYY-MM-DD hh:mm:ss,
+                    "vs_end" : YYYY-MM-DD hh:mm:ss
+                    }, 
+    "status_flag": 0
+}
+```
+
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/gallery/:gallery\_UUID/:content\_UUID" %}
+{% api-method-summary %}
+게시글 호출 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+JWT
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+{
+    "rstCode": 200,
+    "content_flag": 0,
+    "fixed_flag": 0,    
+    "title": "빨간당",
+    "contents": "빨간당 소개 내",
+    "action_count" : {
+                    "like" : 0,
+                    "bad" : 0,
+                    "police" : 0
+                    },
+    "only_vs" : {
+                    "vs_count" : 3,
+                    "vs_title" : ["제목1","제목2","제목3"],
+                    "vs_image" : ["img1.jpg","img2.jpg","img3.jpg"],
+                    "vs_start" : YYYY-MM-DD hh:mm:ss,
+                    "vs_end" : YYYY-MM-DD hh:mm:ss
+                    },    
+    "writer": "nob98",
+    "write_date": YYYY-MM-DD hh:mm:ss,
+    "view_count": 0,
+    "regist_ip": "127.0.0.1",
+    "status_flag": 0,
+    "write_env": 0
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+```text
+https://api.tikita.ca/v1/gallery/b948e2be-9b7a-4963-bcff-34cee7c2e38a/b948e2be-9b7a-4963-bcff-34cee7c2e38a
+```
 
