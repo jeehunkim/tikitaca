@@ -99,7 +99,7 @@ Cake successfully retrieved.
 
 ```text
 {
-    "UUID": UUID,
+    "MEMBER_UUID": UUID,
     "member_email": "nob98@naver.com",
     "email_auth_check": 1,
     "member_nick": "수아짱",

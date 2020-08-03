@@ -17,5 +17,12 @@
 ## MEMBER
 
 * [ACCOUNT](member/account/README.md)
+  * [MEMBER\_HISTORY\_COUNT](member/account/member_history_count.md)
   * [MEMBER\_INFO](member/account/member_info.md)
+
+## GALLERY
+
+* [CONTENT](gallery/content/README.md)
+  * [GALLERY\_BOARD](gallery/content/gallery_board.md)
+* [META\_INFO](gallery/meta_info.md)
 
