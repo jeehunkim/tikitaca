@@ -1,6 +1,8 @@
 # Table of contents
 
 * [API](README.md)
+* [history](history.md)
+* [map](map.md)
 
 ## ADMIN
 
