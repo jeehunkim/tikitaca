@@ -30,3 +30,9 @@
   * [GALLERY\_BOARD](gallery/content/gallery_board.md)
 * [META\_INFO](gallery/meta_info.md)
 
+## BOARD
+
+* [BOARD\_POLICE](board/board_police.md)
+* [BOARD\_NOTICE](board/board_notice.md)
+* [BOARD\_INQUIRY](board/board_inquiry.md)
+

@@ -1,45 +1,57 @@
 ---
-description: '1:1 문의유형(카테고리)'
+description: 전체공지
 ---
 
-# INQUIRY\_CATEGORY
+# BOARD\_NOTICE
 
-{% api-method method="post" host="https://api.tikita.ca" path="/v1/admin/inquiry/category" %}
+{% api-method method="post" host="https://api.tikita.ca" path="/v1/board/notice" %}
 {% api-method-summary %}
-카테고리 등록 
+전체공지 입력 
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+This endpoint allows you to get free cakes.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-JWT
+
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="history" type="object" required=false %}
-히스토리 
+{% api-method-parameter name="view\_flag" type="string" required=false %}
+상태 flag 게시/보류/삭제 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="is\_use" type="boolean" required=true %}
-사용유무 
+{% api-method-parameter name="view\_count" type="string" required=false %}
+조회수 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="make\_date" type="string" required=false %}
+{% api-method-parameter name="modify\_date" type="string" required=false %}
+수정일 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="regist\_date" type="string" required=false %}
 등록일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="manager" type="string" required=true %}
+{% api-method-parameter name="register" type="string" required=false %}
 등록자 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="inquiry\_kind" type="string" required=true %}
-문의유형 제목 
+{% api-method-parameter name="notice\_content" type="string" required=false %}
+내용 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="notice\_title" type="string" required=false %}
+제목 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="notice\_UUID" type="string" required=false %}
+공지 일련번호 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -53,7 +65,7 @@ Cake successfully retrieved.
 ```
 {
     "rstCode": "200",
-    "rstMsg": "문의 유형 등록되었습니다."
+    "rstMsg": "공지글 등록 되었습니다. "
 }
 ```
 {% endapi-method-response-example %}
@@ -62,23 +74,21 @@ Cake successfully retrieved.
 {% endapi-method %}
 
 ```text
-/* example */
 {
-    "inquiry_kind" : "과금관련 ",
-    "manager" : "SU",
-    "make_date" : YYYY-MM-DD hh:mm:ss,
-    "is_use" : 1,
-    "history" : {
-                    "history_code" : 1,
-                    "history_date" : YYYY-MM-DD hh:mm:ss,
-                    "history_manager" : "SU"
-                }
+    "notice_UUID": UUID,
+    "notice_title": "공지제목",
+    "notice_content": "공지내용",
+    "register": "작성자",    
+    "regist_date": "YYYY-MM-DD hh:mm:ss",
+    "modify_date": "YYYY-MM-DD hh:mm:ss",
+    "view_count" : 10,
+    "view_flag" : 0
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/inquiry/category/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/board/notice/:notice\_UUID" %}
 {% api-method-summary %}
-카테고리 수정 
+전체공지 수정 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -89,21 +99,25 @@ Cake successfully retrieved.
 {% api-method-request %}
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-JWT
+
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="history" type="object" required=false %}
-히스토리 
+{% api-method-parameter name="view\_flag" type="string" required=false %}
+상태 flag 게시/보류/삭제 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="is\_use" type="boolean" required=false %}
-사용유무 
+{% api-method-parameter name="modify\_date" type="string" required=false %}
+수정일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="inquiry\_kind" type="string" required=false %}
-문의유형 제목 
+{% api-method-parameter name="notice\_content" type="string" required=false %}
+내용 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="notice\_title" type="string" required=false %}
+제목 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -117,7 +131,7 @@ JWT
 ```
 {
     "rstCode": "200",
-    "rstMsg": "문의유형이 수정 되었습니다."
+    "rstMsg": "공지글이 수 되었습니다. "
 }
 ```
 {% endapi-method-response-example %}
@@ -126,21 +140,17 @@ JWT
 {% endapi-method %}
 
 ```text
-/* example */
-{
-    "inquiry_kind" : "음란물 신고 ",
-    "is_use" : 0,
-    "history" : {
-                    "history_code" : 0,
-                    "history_date" : YYYY-MM-DD hh:mm:ss,
-                    "history_manager" : "SU"
-                }
+{  
+    "notice_title": "공지제목",
+    "notice_content": "공지내용",
+    "modify_date": "YYYY-MM-DD hh:mm:ss",
+    "view_flag" : 0
 }
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/inquiry/category/:UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/board/notice/:notice\_UUID" %}
 {% api-method-summary %}
-카테고리 정보 호출 
+공지글 호출 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -151,7 +161,7 @@ JWT
 {% api-method-request %}
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
-JWT
+
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
@@ -163,28 +173,24 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
-/* example */
 {
-    "rstCode": 200,
-    "inquiry_title" : "과금관련 ",
-    "manager" : "SU",
-    "make_date" : YYYY-MM-DD hh:mm:ss,
-    "is_use" : 1,
-    "history" : {
-                    "history_code" : 1,
-                    "history_date" : YYYY-MM-DD hh:mm:ss,
-                    "history_manager" : "SU"
-                }    
+    "rstCode":200,
+    "notice_UUID": UUID,
+    "notice_title": "공지제목",
+    "notice_content": "공지내용",
+    "register": "작성자",    
+    "regist_date": "YYYY-MM-DD hh:mm:ss",
+    "modify_date": "YYYY-MM-DD hh:mm:ss",
+    "view_count" : 10,
+    "view_flag" : 0
 }
+
+/*
+    sql update view count 
+*/
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-```text
-https://api.tikita.ca/v1/admin/inquiry/category/b948e2be-9b7a-4963-bcff-34cee7c2e38a
-```
-
-
 
