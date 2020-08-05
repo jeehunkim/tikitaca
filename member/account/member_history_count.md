@@ -6,7 +6,7 @@ description: 게시글/댓글/경고 카운트
 
 {% api-method method="post" host="https://api.tikita.ca" path="/v1/member/history-count" %}
 {% api-method-summary %}
-게시글 카운트 입력 
+게시글/댓글/핫게\(롱런\)/신고/정지 카운트 입력 
 {% endapi-method-summary %}
 
 {% api-method-description %}
