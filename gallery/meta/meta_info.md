@@ -22,19 +22,27 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="register" type="string" required=true %}
+갤러리 개설자 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="gallery\_uuid" type="string" required=true %}
+갤러리 고유번호 
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="history" type="object" required=false %}
 히스토리 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="owener\_info" type="object" required=false %}
+{% api-method-parameter name="owener\_info" type="object" required=true %}
 관리자정보 관리자아이디/등급/상태/등
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="gallery\_status" type="integer" required=false %}
+{% api-method-parameter name="gallery\_status" type="integer" required=true %}
 갤러리 상태 정상/폐쇄/임시폐쇄 등 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="regist\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=true %}
 개설일 
 {% endapi-method-parameter %}
 
@@ -46,7 +54,7 @@ JWT
 갤러리 소개 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="gallery\_name" type="string" required=false %}
+{% api-method-parameter name="gallery\_name" type="string" required=true %}
 갤러리 이름 
 {% endapi-method-parameter %}
 
@@ -80,6 +88,7 @@ Cake successfully retrieved.
     "gallery_name": "빨간당",
     "gallery_info": "빨간당 소개 ",
     "gallery_img": "../img/src/....png",
+    "register": "SU",
     "regist_date": YYYY-MM-DD hh:mm:ss,
     "gallery_status": 0,
     "owener_info" : {
@@ -90,12 +99,16 @@ Cake successfully retrieved.
                     "register" : "SU"
                     },
     "history" : {
-                    "history_code" : 0,
+                    "history_memo" : 0,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }
 }
 ```
+
+{% hint style="info" %}
+owner\_grade - 0 : 소유자, 1 : 매니저, 2 : 부매니저 
+{% endhint %}
 
 {% api-method method="patch" host="https://api.tikita.ca" path="/v1/gallery/meta-info/:gallery\_uuid" %}
 {% api-method-summary %}
@@ -174,7 +187,7 @@ JWT
                     "register" : "SU"
                     },
     "history" : {
-                    "history_code" : 0,
+                    "history_memo" : 0,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }
@@ -213,6 +226,7 @@ JWT
     "gallery_name": "빨간당",
     "gallery_info": "빨간당 소개 ",
     "gallery_img": "../img/src/....png",
+    "register": "SU",
     "regist_date": YYYY-MM-DD hh:mm:ss,
     "gallery_status": 0,
     "owener_info" : {
@@ -223,7 +237,7 @@ JWT
                     "register" : "SU"
                     },
     "history" : {
-                    "history_code" : 0,
+                    "history_memo" : 0,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }

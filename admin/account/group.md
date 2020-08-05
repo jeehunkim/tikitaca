@@ -34,7 +34,7 @@ jtw token
 history
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="manager" type="string" required=false %}
+{% api-method-parameter name="register" type="string" required=true %}
 등록자 
 {% endapi-method-parameter %}
 
@@ -84,7 +84,7 @@ Could not find a cake matching this query.
     "group_code": "P-00001",
     "group_name": "개발부",
     "regist_date": YYYY-MM-DD hh:mm:ss,
-    "manager" : "SU",
+    "register" : "SU",
     "is_use" : 0,
     "history" : {
                     "history_memo" : 1,
@@ -114,7 +114,7 @@ jwt
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="history\_manager" type="string" required=false %}
+{% api-method-parameter name="history" type="object" required=false %}
 처리자 
 {% endapi-method-parameter %}
 
@@ -244,7 +244,7 @@ jwt
 https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/group/:UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/group/:group\_uuid" %}
 {% api-method-summary %}
 관리자 소속정보 호출 
 {% endapi-method-summary %}
@@ -275,15 +275,15 @@ https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
     "part_Code": "P-00001",
     "part_Name": "개발부",
     "registDate": YYYY-MM-DD hh:mm:ss,
-    "manager" : "SU",
+    "register" : "SU",
     "is_use" : 1,
     "history" : [{
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 },
                 {
-                    "history_code" : 0,
+                    "history_memo" : 0,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }]               

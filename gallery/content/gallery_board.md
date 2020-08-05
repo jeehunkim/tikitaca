@@ -38,11 +38,11 @@ JWT
 조회수 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="write\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=false %}
 작성일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="writer" type="string" required=false %}
+{% api-method-parameter name="register" type="string" required=true %}
 작성자 
 {% endapi-method-parameter %}
 
@@ -54,23 +54,23 @@ VS전용 경쟁항목수/항목타이틀 등
 좋아요/싫어요/신고 카운트 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="contents" type="string" required=false %}
+{% api-method-parameter name="contents" type="string" required=true %}
 내용 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="title" type="string" required=false %}
+{% api-method-parameter name="title" type="string" required=true %}
 제목 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="fixed\_flag" type="string" required=false %}
+{% api-method-parameter name="fixed\_flag" type="boolean" required=true %}
 공지일 경우 상단고정 유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="content\_flag" type="integer" required=false %}
+{% api-method-parameter name="content\_flag" type="integer" required=true %}
 게시글 형식 공지/일반/VS
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="content\_UUID" type="string" required=false %}
+{% api-method-parameter name="content\_uuid" type="string" required=true %}
 게시글 일련번호 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -93,10 +93,16 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% hint style="info" %}
+content\_flag - 0 : 공지, 1 : 일반, 2 : VS 
+
+fixed\_flag - 0 : 기본, 1 : 상단 고정 
+{% endhint %}
+
 ```text
 {
-    "gallery_UUID": UUID,
-    "content_UUID": UUID,
+    "gallery_uuid": UUID,
+    "content_uuid": UUID,
     "content_flag": 0,
     "fixed_flag": 0,    
     "title": "빨간당",
@@ -114,8 +120,8 @@ Cake successfully retrieved.
                     "vs_start" : YYYY-MM-DD hh:mm:ss,
                     "vs_end" : YYYY-MM-DD hh:mm:ss
                     },    
-    "writer": "nob98",
-    "write_date": YYYY-MM-DD hh:mm:ss,
+    "register": "nob98",
+    "regist_date": YYYY-MM-DD hh:mm:ss,
     "view_count": 0,
     "regist_ip": "127.0.0.1",
     "status_flag": 0,
@@ -244,8 +250,8 @@ JWT
                     "vs_start" : YYYY-MM-DD hh:mm:ss,
                     "vs_end" : YYYY-MM-DD hh:mm:ss
                     },    
-    "writer": "nob98",
-    "write_date": YYYY-MM-DD hh:mm:ss,
+    "register": "nob98",
+    "regist_date": YYYY-MM-DD hh:mm:ss,
     "view_count": 0,
     "regist_ip": "127.0.0.1",
     "status_flag": 0,

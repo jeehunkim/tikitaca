@@ -22,7 +22,7 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="member\_uuid" type="string" required=false %}
+{% api-method-parameter name="member\_uuid" type="string" required=true %}
 회원 고유 UUID
 {% endapi-method-parameter %}
 
@@ -38,7 +38,7 @@ JWT
 회원구분 일반/SNS 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="adult\_check" type="string" required=false %}
+{% api-method-parameter name="adult\_check" type="boolean" required=false %}
 성인인증 
 {% endapi-method-parameter %}
 
@@ -152,11 +152,11 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="email\_auth\_check" type="integer" required=false %}
+{% api-method-parameter name="email\_auth\_check" type="boolean" required=false %}
 이메일 인증 체크 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="ad\_check" type="string" required=false %}
+{% api-method-parameter name="ad\_check" type="boolean" required=false %}
 이벤트/광고 등 수신동의 
 {% endapi-method-parameter %}
 
@@ -168,15 +168,15 @@ JWT
 민감정보 이름/성별/생년월일/전화번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="adult\_check" type="string" required=false %}
+{% api-method-parameter name="adult\_check" type="boolean" required=false %}
 성인인증 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="personal\_check" type="string" required=false %}
+{% api-method-parameter name="personal\_check" type="boolean" required=false %}
 본인인증 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="child\_check" type="string" required=false %}
+{% api-method-parameter name="child\_check" type="boolean" required=false %}
 14세 미만 체크 
 {% endapi-method-parameter %}
 
@@ -349,10 +349,16 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% hint style="info" %}
+check\_job  - 0 : 로그인, 1 : 비밀번호 
+{% endhint %}
+
 ```text
 {
     "check_job": 0,
     "change_date" : YYYY-MM-DD hh:mm:ss
 }
 ```
+
+
 

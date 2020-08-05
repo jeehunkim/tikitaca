@@ -30,7 +30,7 @@ This endpoint allows you to get free cakes.
 처리유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="regist\_ip" type="string" required=false %}
+{% api-method-parameter name="regist\_ip" type="string" required=true %}
 록 아이피 
 {% endapi-method-parameter %}
 
@@ -42,23 +42,23 @@ This endpoint allows you to get free cakes.
 신고 내용 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="register" type="string" required=false %}
+{% api-method-parameter name="register" type="string" required=true %}
 작성\(신고\)자 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="content\_UUID" type="string" required=false %}
+{% api-method-parameter name="content\_uuid" type="string" required=true %}
 게시글/댓글 일련번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="is\_reply" type="boolean" required=false %}
+{% api-method-parameter name="is\_reply" type="boolean" required=true %}
 게시글 댓글 구분 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="gallery\_UUID" type="string" required=false %}
+{% api-method-parameter name="gallery\_uuid" type="string" required=true %}
 갤러리 일련번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="police\_UUID" type="string" required=false %}
+{% api-method-parameter name="police\_uuid" type="string" required=true %}
 신고 일련번호 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -81,12 +81,16 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% hint style="info" %}
+is\_reply - 0 : 게시글, 1 : 댓글
+{% endhint %}
+
 ```text
 {
-    "police_UUID" : UUID,
-    "gallery_UUID" : UUID,
+    "police_uuid" : UUID,
+    "gallery_uuid" : UUID,
     "is_reply" : 0,
-    "content_UUID" : UUID,
+    "content_uuid" : UUID,
     "register" : "달봉",
     "content" : "신고합니다.",    
     "regist_date" : YYYY-MM-DD hh:mm:ss,
@@ -123,10 +127,10 @@ Cake successfully retrieved.
 ```
 {
     "rstCode": 200,
-    "police_UUID" : UUID,
-    "gallery_UUID" : UUID,
+    "police_uuid" : UUID,
+    "gallery_uuid" : UUID,
     "is_reply" : 0,
-    "content_UUID" : UUID,
+    "content_uuid" : UUID,
     "register" : "달봉",
     "content" : "신고합니다.",    
     "regist_date" : YYYY-MM-DD hh:mm:ss,
@@ -159,10 +163,10 @@ Cake successfully retrieved.
 
 {% api-method-body-parameters %}
 {% api-method-parameter name="history" type="object" required=false %}
-:신고 히스토리 
+신고 히스토리 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="status\_flag" type="string" required=false %}
+{% api-method-parameter name="status\_flag" type="integer" required=false %}
 처리유무 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -189,14 +193,14 @@ Cake successfully retrieved.
 {
     "status_flag" : 1,
     "history" : [{
-                    "manager": "su1",
-                    "regist_date":YYYY-MM-DD hh:mm:ss,
-                    "memo": ""
+                    "history_manager": "su1",
+                    "history_date":YYYY-MM-DD hh:mm:ss,
+                    "history_memo": ""
                 },
                 {
-                    "manager": "su2",
-                    "regist_date":YYYY-MM-DD hh:mm:ss,
-                    "memo": ""
+                    "history_manager": "su2",
+                    "history_date":YYYY-MM-DD hh:mm:ss,
+                    "history_memo": ""
                 },                
                 ]
 }

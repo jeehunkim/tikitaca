@@ -23,7 +23,7 @@ This endpoint allows you to get free cakes.
 
 {% api-method-body-parameters %}
 {% api-method-parameter name="is\_use" type="integer" required=true %}
-:사용 유무 
+사용 유무 
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="level\_name" type="string" required=true %}
@@ -83,15 +83,15 @@ Cake successfully retrieved.
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="is\_use" type="integer" required=false %}
+{% api-method-parameter name="is\_use" type="integer" required=true %}
 사용유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="level\_name" type="string" required=false %}
+{% api-method-parameter name="level\_name" type="string" required=true %}
 레벨명 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="level\_value" type="integer" required=false %}
+{% api-method-parameter name="level\_value" type="integer" required=true %}
 레벨 값  
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}

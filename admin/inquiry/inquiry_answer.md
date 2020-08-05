@@ -34,11 +34,11 @@ JWT
 사용유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="regist\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=true %}
 등록일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="register" type="string" required=false %}
+{% api-method-parameter name="register" type="string" required=true %}
 등록자 
 {% endapi-method-parameter %}
 
@@ -232,12 +232,14 @@ https://api.tikita.ca/v1/admin/inquiry/answer/b948e2be-9b7a-4963-bcff-34cee7c2e3
 /* example */
 [
 {
+    "answer_uuid": UUID,
     "answer_title" : "과금관련 ",
     "answer_comment" : "과금관련 ",
    .
    .
 },
 {
+    "answer_uuid": UUID,
     "answer_title" : "과금관련2 ",
     "answer_comment" : "과금관련3 ",
    .

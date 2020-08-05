@@ -26,15 +26,15 @@ This endpoint allows you to get free cakes.
 등록일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="keyword" type="object" required=false %}
+{% api-method-parameter name="keyword" type="object" required=true %}
 hashtag
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="content\_UUID" type="string" required=false %}
+{% api-method-parameter name="content\_uuid" type="string" required=true %}
 게시글 일련번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="gallery\_UUID" type="string" required=false %}
+{% api-method-parameter name="gallery\_uuid" type="string" required=true %}
 갤러리 일련번호 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -59,8 +59,8 @@ Cake successfully retrieved.
 
 ```text
 {
-    "gallery_UUID": UUID,
-    "content_UUID": UUID,
+    "gallery_uuid": UUID,
+    "content_uuid": UUID,
     "keyword": ["연예인","여자","아이"],
     "write_date": YYYY-MM-DD hh:mm:ss
 }
@@ -91,19 +91,16 @@ Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstList":[   
-                   {
-                   "gallery_UUID":"",
-                   "content_UUID":"UUID"
-                   },
-                   {
-                   "gallery_UUID":"",
-                   "content_UUID":"UUID"
-                   }
-               ]                
-}
+[   
+    {
+        "gallery_uuid":"",
+        "content_uuid":"UUID"
+    },
+    {
+        "gallery_uuid":"",
+        "content_uuid":"UUID"
+    }
+] 
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

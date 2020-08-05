@@ -22,11 +22,11 @@ This endpoint allows you to get free cakes.
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="view\_flag" type="string" required=false %}
+{% api-method-parameter name="view\_flag" type="integer" required=false %}
 상태 flag 게시/보류/삭제 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="view\_count" type="string" required=false %}
+{% api-method-parameter name="view\_count" type="integer" required=false %}
 조회수 
 {% endapi-method-parameter %}
 
@@ -38,19 +38,19 @@ This endpoint allows you to get free cakes.
 등록일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="register" type="string" required=false %}
+{% api-method-parameter name="register" type="string" required=true %}
 등록자 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="notice\_content" type="string" required=false %}
+{% api-method-parameter name="notice\_content" type="string" required=true %}
 내용 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="notice\_title" type="string" required=false %}
+{% api-method-parameter name="notice\_title" type="string" required=true %}
 제목 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="notice\_UUID" type="string" required=false %}
+{% api-method-parameter name="notice\_uuid" type="string" required=true %}
 공지 일련번호 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -75,7 +75,7 @@ Cake successfully retrieved.
 
 ```text
 {
-    "notice_UUID": UUID,
+    "notice_uuid": UUID,
     "notice_title": "공지제목",
     "notice_content": "공지내용",
     "register": "작성자",    
@@ -104,7 +104,7 @@ Cake successfully retrieved.
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="view\_flag" type="string" required=false %}
+{% api-method-parameter name="view\_flag" type="integer" required=false %}
 상태 flag 게시/보류/삭제 
 {% endapi-method-parameter %}
 
@@ -175,7 +175,7 @@ Cake successfully retrieved.
 ```
 {
     "rstCode":200,
-    "notice_UUID": UUID,
+    "notice_uuid": UUID,
     "notice_title": "공지제목",
     "notice_content": "공지내용",
     "register": "작성자",    

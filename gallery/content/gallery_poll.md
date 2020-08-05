@@ -34,7 +34,7 @@ JWT
 투표번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="MEMBER\_UUID" type="string" required=true %}
+{% api-method-parameter name="member\_uuid" type="string" required=true %}
 회원 고유값 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -59,7 +59,7 @@ Cake successfully retrieved.
 
 ```text
 {
-    "MEMBER_UUID": UUID,
+    "member_uuid": UUID,
     "poll_number": 3,
     "regist_date": YYYY-MM-DD hh:mm:ss,
     "regist_ip": "127.0.0.1"
