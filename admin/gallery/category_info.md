@@ -34,7 +34,7 @@ JWT
 사용유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="make\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=false %}
 생성일 
 {% endapi-method-parameter %}
 
@@ -49,14 +49,14 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
 {
-    "rstCode": "200",
+    "rstCode": "1",
     "rstMsg": "갤러리 카테고리 정보 등록 되었습니다"
 }
 ```
@@ -67,10 +67,10 @@ Cake successfully retrieved.
 
 ```text
 {
-    "UUID": UUID,
+    "category_uuid": UUID,
     "category_code": "AE",
     "category_name": "유머 ",
-    "make_date" : YYYY-MM-DD hh:mm:ss,
+    "regist_date" : YYYY-MM-DD hh:mm:ss,
     "is_use" : 1,
     "sort_no" : 1,
     "history" : {
@@ -125,8 +125,7 @@ JWT
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "카테고리 정보 수정 되었습니다."
+    "rstCode": "1"
 }
 ```
 {% endapi-method-response-example %}
@@ -174,7 +173,7 @@ JWT
 
 ```
 {
-    "rstCode": "200",
+    "rstCode": "1",
     "category_code": "AE",
     "category_name": "유머 ",
     "make_date" : YYYY-MM-DD hh:mm:ss,

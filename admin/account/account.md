@@ -57,14 +57,14 @@ jwt
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
 {
-    "rstCode": "200",
+    "rstCode": "1",
     "rstMsg": "계정이 등록 되었습니다"
 }   
 ```
@@ -139,7 +139,7 @@ jwt
 
 ```
 {
-    "rstCode": "200",
+    "rstCode": "1",
     "rstMsg": "계정정보가 수정 되었습니다"
 }  
 ```
@@ -187,14 +187,14 @@ jwt
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=204 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
 
 ```
 {
-    "rstCode": "200",
+    "rstCode": "1",
     "rstMsg": "계정이 삭제 되었습니다"
 }  
 ```

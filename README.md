@@ -14,4 +14,18 @@
 8. 파일 확장자는 URI에 포함시키지 않는다.
 9. REST API에서는 메시지 바디 내용의 포맷을 나타내기 위한 파일 확장자를 URI 안에 포함시키지 않습니다. Accept header를 사용하도록 합시다.
 10. Content-Type = application/json
+11. json 키값은 소문자+\(\_\)로 사용한다.
+12. 올바른 http\_status를 제공한다.GET
+
+| CODE | METHOD | BODY |
+| :--- | :--- | :--- |
+| 200 | GET | OK |
+| 201 | POST |  |
+| 204 | DELETE |  |
+
+{% hint style="warning" %}
+200계열에서의 RETURN\_CODE는 포함하지 않는다.
+
+400계열서의 RETURN\_CODE는 별도로 작성한다.
+{% endhint %}
 
