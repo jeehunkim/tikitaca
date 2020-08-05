@@ -30,11 +30,11 @@ jwt
 계정 상태  - 대기/정상/보류/삭제 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="account\_makeday" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=true %}
 계정 생성일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="account\_group\_code" type="string" required=true %}
+{% api-method-parameter name="group\_code" type="string" required=true %}
 계정 소속코드 
 {% endapi-method-parameter %}
 
@@ -75,13 +75,13 @@ Cake successfully retrieved.
 
 ```text
 {
-    "UUID": UUID,
+    "account_uuid": UUID,
     "account_ID": "nob98",
     "account_pwd": "1234",
     "account_level": "SU",
     "account_name" : "김지훈",
-    "account_group_code" : "P-00001",
-    "account_makeday" : YYYY-MM-DD hh:mm:ss,
+    "group_code" : "P-00001",
+    "regist_date" : YYYY-MM-DD hh:mm:ss,
     "account_status" : 1,
     "history" : {
                     "history_memo" : 1,
@@ -91,7 +91,7 @@ Cake successfully retrieved.
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/account/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/account/:account\_uuid" %}
 {% api-method-summary %}
 관리자 등록정보 수정 
 {% endapi-method-summary %}
@@ -109,6 +109,10 @@ jwt
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="group\_code" type="string" required=false %}
+계정 소속 코드 
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="history" type="object" required=false %}
 계정 히스토리 
 {% endapi-method-parameter %}
@@ -162,7 +166,7 @@ jwt
 }
 ```
 
-{% api-method method="delete" host="https://api.tikita.ca" path="/v1/admin/member/account/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/account/:account\_uuid" %}
 {% api-method-summary %}
 관리자 등록정보 삭제 
 {% endapi-method-summary %}
@@ -180,6 +184,10 @@ jwt
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="account\_status" type="integer" required=true %}
+계정 상태 
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="history" type="object" required=true %}
 계정 히스토리 
 {% endapi-method-parameter %}
@@ -209,6 +217,7 @@ https://api.tikita.ca/v1/admin/member/account/b948e2be-9b7a-4963-bcff-34cee7c2e3
 
 ```text
 {
+    "account_status": 3,
     "history" : {
                     "history_memo" : 0,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
@@ -223,7 +232,7 @@ update "account" set account_status = 3 where UUID = UUID
 update "account" set history.history_memo = 0, ... where UUID = UUID
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/account/:UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/account/:account\_uuid" %}
 {% api-method-summary %}
 관리자 등록정보 호출 
 {% endapi-method-summary %}
@@ -256,7 +265,7 @@ jwt
     "account_level": "SU",
     "account_name" : "김지훈",
     "account_group_code" : "P-00001",
-    "account_makeday" : YYYY-MM-DD hh:mm:ss,
+    "regist_date" : YYYY-MM-DD hh:mm:ss,
     "account_status" : 1,
     "history" : [{
                     "history_memo" : 1,
@@ -277,6 +286,10 @@ jwt
 {% endapi-method %}
 
 ```text
+/* 관리자 전체 리스트 */
+https://api.tikita.ca/v1/admin/member/account
+
+/* 관리자 개 리스트 */
 https://api.tikita.ca/v1/admin/member/account/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 ```
 

@@ -73,12 +73,15 @@ Cake successfully retrieved.
 ```text
 /* example */
 {
+    "grade_uuid" : UUID
     "grade_code" : "SU",
-    "grade_name" : "최고관리자"
+    "grade_name" : "최고관리자",
+    "regist_date": YYYY-MM-DD hh:mm:ss,
+    "is_use": 0
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/grade/:grade\_code" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/grade/:grade\_uuid" %}
 {% api-method-summary %}
 관리자 등급 수정 
 {% endapi-method-summary %}
@@ -148,7 +151,7 @@ jwt
 update "tables" set is_use = 0, grade_name = '최고관리자2' where grade_code = 'SU'
 ```
 
-{% api-method method="delete" host="https://api.tikita.ca" path="/v1/admin/member/grade/:grade\_code" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/grade/:grade\_uuid" %}
 {% api-method-summary %}
 관리자 등급 삭제 
 {% endapi-method-summary %}
@@ -164,6 +167,12 @@ update "tables" set is_use = 0, grade_name = '최고관리자2' where grade_code
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="is\_use" type="boolean" required=false %}
+사용유무 
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -184,15 +193,15 @@ JWT
 {% endapi-method %}
 
 ```text
-https://api.tikita.ca/v1/admin/member/grade/SU
+https://api.tikita.ca/v1/admin/member/grade/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 ```
 
 ```text
 /* in case sql */
-update "tables" set is_use = 0 where grade_code = 'SU'
+update "tables" set is_use = 3 where grade_uuid = 'b948e2be-9b7a-4963-bcff-34cee7c2e38a'
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/grade/:grade\_code" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/grade/:grade\_uuid" %}
 {% api-method-summary %}
 관리자 등급 조회 
 {% endapi-method-summary %}
@@ -220,10 +229,11 @@ JWT
 /* example */
 {
     "rstCode" : 200,
-    "serial_no" : "일련번호",
+    "grade_uuid" : UUID
+    "grade_code" : "SU",
     "grade_name" : "최고관리자",
-    "make_date" : "2020-07-30",
-    "is_use" : true
+    "regist_date": YYYY-MM-DD hh:mm:ss,
+    "is_use": 0
 }
 ```
 {% endapi-method-response-example %}
@@ -232,11 +242,50 @@ JWT
 {% endapi-method %}
 
 ```text
-https://api.tikita.ca/v1/admin/member/grade/SU
+https://api.tikita.ca/v1/admin/member/grade/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 ```
 
 ```text
 /* in case sql */
-select * from "tables" where grade_code = 'SU'
+select * from "tables" where grade_uuid = 'b948e2be-9b7a-4963-bcff-34cee7c2e38a'
 ```
+
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/grade" %}
+{% api-method-summary %}
+관리자 등급 전체 리스트 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+/* example */
+{
+    "grade_uuid" : UUID
+    "grade_code" : "SU",
+    "grade_name" : "최고관리자",
+    "regist_date": YYYY-MM-DD hh:mm:ss,
+    "is_use": 0
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 

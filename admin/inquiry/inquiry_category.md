@@ -22,6 +22,10 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="category\_uuid" type="string" required=false %}
+카테고리 일련번호 
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="history" type="object" required=false %}
 히스토리 
 {% endapi-method-parameter %}
@@ -30,11 +34,11 @@ JWT
 사용유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="make\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=false %}
 등록일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="manager" type="string" required=true %}
+{% api-method-parameter name="register" type="string" required=true %}
 등록자 
 {% endapi-method-parameter %}
 
@@ -65,20 +69,20 @@ Cake successfully retrieved.
 /* example */
 {
     "inquiry_kind" : "과금관련 ",
-    "manager" : "SU",
-    "make_date" : YYYY-MM-DD hh:mm:ss,
+    "register" : "SU",
+    "regist_date" : YYYY-MM-DD hh:mm:ss,
     "is_use" : 1,
     "history" : {
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/inquiry/category/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/inquiry/category/:category\_uuid" %}
 {% api-method-summary %}
-카테고리 수정 
+카테고리 수정/삭제 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -131,14 +135,14 @@ JWT
     "inquiry_kind" : "음란물 신고 ",
     "is_use" : 0,
     "history" : {
-                    "history_code" : 0,
+                    "history_memo" : 0,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }
 }
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/inquiry/category/:UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/inquiry/category/:category\_uuid" %}
 {% api-method-summary %}
 카테고리 정보 호출 
 {% endapi-method-summary %}
@@ -167,11 +171,11 @@ JWT
 {
     "rstCode": 200,
     "inquiry_title" : "과금관련 ",
-    "manager" : "SU",
-    "make_date" : YYYY-MM-DD hh:mm:ss,
+    "register" : "SU",
+    "regist_date" : YYYY-MM-DD hh:mm:ss,
     "is_use" : 1,
     "history" : {
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }    
@@ -187,4 +191,52 @@ https://api.tikita.ca/v1/admin/inquiry/category/b948e2be-9b7a-4963-bcff-34cee7c2
 ```
 
 
+
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/inquiry/category" %}
+{% api-method-summary %}
+카테고리 리스트 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+/* example */
+[
+{
+    "inquiry_title" : "과금관련 ",
+     "register" : "SU",
+    .
+    .
+    .
+},
+{
+    "inquiry_title" : "민원관련 ",
+     "register" : "SU",
+    .
+    .
+    .
+}
+]
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 

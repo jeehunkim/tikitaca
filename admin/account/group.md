@@ -22,6 +22,14 @@ jtw token
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="is\_use" type="boolean" required=true %}
+사용유무 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="regist\_date" type="string" required=true %}
+등록일 
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="history" type="object" required=false %}
 history
 {% endapi-method-parameter %}
@@ -72,14 +80,14 @@ Could not find a cake matching this query.
 
 ```text
 {
-    "UUID": UUID,
-    "group_Code": "P-00001",
-    "group_Name": "개발부",
-    "registDate": YYYY-MM-DD hh:mm:ss,
+    "group_uuid": UUID,
+    "group_code": "P-00001",
+    "group_name": "개발부",
+    "regist_date": YYYY-MM-DD hh:mm:ss,
     "manager" : "SU",
-    "is_use" : 1,
+    "is_use" : 0,
     "history" : {
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }                
@@ -88,7 +96,7 @@ Could not find a cake matching this query.
 
 
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/group/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/group/:group\_uuid" %}
 {% api-method-summary %}
 관리자 소속항목 수정 
 {% endapi-method-summary %}
@@ -110,15 +118,15 @@ jwt
 처리자 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="is\_use" type="boolean" required=false %}
+{% api-method-parameter name="is\_use" type="boolean" required=true %}
 사용유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="group\_name" type="string" required=false %}
-소속
+{% api-method-parameter name="group\_name" type="string" required=true %}
+소속명 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="group\_code" type="string" required=false %}
+{% api-method-parameter name="group\_code" type="string" required=true %}
 소속코드 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -156,18 +164,18 @@ jwt
 
 ```text
 {
-    "group_Code": "P-00001",
-    "group_Name": "개발부",
+    "group_code": "P-00001",
+    "group_name": "개발부",
     "is_use" : 0,
     "history" : {
-                    "history_code" : 2,
+                    "history_memo" : 2,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }                
 }
 ```
 
-{% api-method method="delete" host="https://api.tikita.ca" path="/v1/admin/member/group/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/admin/member/group/:group\_uuid" %}
 {% api-method-summary %}
 관리자 소속정보 삭제 
 {% endapi-method-summary %}
@@ -183,6 +191,12 @@ jwt
 jwt
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="is\_use" type="boolean" required=true %}
+사용유무 
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -214,6 +228,17 @@ jwt
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+```text
+{
+    "is_use" : 0,
+    "history" : {
+                    "history_memo" : 3,
+                    "history_date" : YYYY-MM-DD hh:mm:ss,
+                    "history_manager" : "SU"
+                }                
+}
+```
 
 ```text
 https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
@@ -286,5 +311,59 @@ https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 
 ```text
 https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
+```
+
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/admin/member/group" %}
+{% api-method-summary %}
+관리자 소속 정보 리스트 호출 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+/* example */
+{
+    "rstCode": 200,
+    "part_Code": "P-00001",
+    "part_Name": "개발부",
+    "registDate": YYYY-MM-DD hh:mm:ss,
+    "manager" : "SU",
+    "is_use" : 1,
+    "history" : [{
+                    "history_code" : 1,
+                    "history_date" : YYYY-MM-DD hh:mm:ss,
+                    "history_manager" : "SU"
+                },
+                {
+                    "history_code" : 0,
+                    "history_date" : YYYY-MM-DD hh:mm:ss,
+                    "history_manager" : "SU"
+                }]               
+}
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+```text
+https://api.tikita.ca/v1/admin/member/group
 ```
 

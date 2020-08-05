@@ -34,7 +34,7 @@ JWT
 갤러리 상태 정상/폐쇄/임시폐쇄 등 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="open\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=false %}
 개설일 
 {% endapi-method-parameter %}
 
@@ -75,12 +75,12 @@ Cake successfully retrieved.
 
 ```text
 {
-    "gallery_UUID": UUID,
+    "gallery_uuid": UUID,
     "view_sort": 0,
     "gallery_name": "빨간당",
     "gallery_info": "빨간당 소개 ",
     "gallery_img": "../img/src/....png",
-    "open_date": YYYY-MM-DD hh:mm:ss,
+    "regist_date": YYYY-MM-DD hh:mm:ss,
     "gallery_status": 0,
     "owener_info" : {
                     "owner_UUID" : MEMBER_UUID,
@@ -97,7 +97,7 @@ Cake successfully retrieved.
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/gallery/meta-info/:gallery\_UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/gallery/meta-info/:gallery\_uuid" %}
 {% api-method-summary %}
 갤러리 수정 
 {% endapi-method-summary %}
@@ -181,7 +181,7 @@ JWT
 }
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/gallery/meta-info/:gallery\_UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/gallery/meta-info/:gallery\_uuid" %}
 {% api-method-summary %}
 갤러리 정보 호출 
 {% endapi-method-summary %}
@@ -213,7 +213,7 @@ JWT
     "gallery_name": "빨간당",
     "gallery_info": "빨간당 소개 ",
     "gallery_img": "../img/src/....png",
-    "open_date": YYYY-MM-DD hh:mm:ss,
+    "regist_date": YYYY-MM-DD hh:mm:ss,
     "gallery_status": 0,
     "owener_info" : {
                     "owner_UUID" : MEMBER_UUID,

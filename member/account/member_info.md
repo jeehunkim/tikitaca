@@ -22,23 +22,27 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
+{% api-method-parameter name="member\_uuid" type="string" required=false %}
+회원 고유 UUID
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="history" type="object" required=false %}
 히스토리 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_detail\_info" type="object" required=false %}
+{% api-method-parameter name="detail\_info" type="object" required=false %}
 민감정보 이름/성별/생년월일/전화번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_sns\_check" type="string" required=false %}
+{% api-method-parameter name="sns\_check" type="boolean" required=false %}
 회원구분 일반/SNS 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="adult\_auth\_check" type="string" required=false %}
+{% api-method-parameter name="adult\_check" type="string" required=false %}
 성인인증 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="personal\_auth\_check" type="boolean" required=false %}
+{% api-method-parameter name="personal\_check" type="boolean" required=false %}
 본인인증 
 {% endapi-method-parameter %}
 
@@ -46,27 +50,27 @@ JWT
 가입일/최종로그인/비밀번호변경일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_AD\_check" type="boolean" required=true %}
+{% api-method-parameter name="ad\_check" type="boolean" required=true %}
 이벤트/광고 등 수신동의 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_child\_check" type="boolean" required=true %}
+{% api-method-parameter name="child\_check" type="boolean" required=true %}
 14세 미만 체크 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_level" type="string" required=true %}
+{% api-method-parameter name="level" type="integer" required=true %}
 회원 등급 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_status" type="string" required=true %}
+{% api-method-parameter name="status" type="integer" required=true %}
 회원상태 유효/휴면/탈퇴 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_pwd" type="string" required=false %}
+{% api-method-parameter name="pwd" type="string" required=false %}
 비밀번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_nick" type="string" required=true %}
+{% api-method-parameter name="nick" type="string" required=true %}
 닉네임 
 {% endapi-method-parameter %}
 
@@ -74,7 +78,7 @@ JWT
 이메일 인증 여부 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_email" type="string" required=true %}
+{% api-method-parameter name="email" type="string" required=true %}
 이메일 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -99,38 +103,38 @@ Cake successfully retrieved.
 
 ```text
 {
-    "MEMBER_UUID": UUID,
-    "member_email": "nob98@naver.com",
+    "member_uuid": UUID,
+    "email": "nob98@naver.com",
     "email_auth_check": 1,
-    "member_nick": "수아짱",
-    "member_pwd" : "1234",
-    "member_status" : 1,   
-    "member_level" : 1,    
-    "member_child_check" : 0,    
-    "member_AD_check" : 1,
+    "nick": "수아짱",
+    "pwd" : "1234",
+    "status" : 0,   
+    "level" : 1,    
+    "child_check" : 0,    
+    "ad_check" : 1,
     "check_date" : {
                     "join_date" : YYYY-MM-DD hh:mm:ss,
                     "login_date" : YYYY-MM-DD hh:mm:ss,
                     "password_date" : YYYY-MM-DD hh:mm:ss
                     },
-    "personal_auth_check" : 1,
-    "adult_auth_check" : 1,
-    "member_sns_check" : 0,
-    "member_detail_info" : {
+    "personal_check" : 1,
+    "adult_check" : 1,
+    "sns_check" : 0,
+    "detail_info" : {
                     "name" : "김지훈",
                     "ismale" : 1,
                     "birthday" : YYYY-MM-DD,
                     "phoneno" : "0000000000",
                 },                
     "history" : {
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }    
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/account/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/account/:member\_uuid" %}
 {% api-method-summary %}
 회원정보 수정 
 {% endapi-method-summary %}
@@ -148,7 +152,11 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="member\_AD\_check" type="string" required=false %}
+{% api-method-parameter name="email\_auth\_check" type="integer" required=false %}
+이메일 인증 체크 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="ad\_check" type="string" required=false %}
 이벤트/광고 등 수신동의 
 {% endapi-method-parameter %}
 
@@ -156,35 +164,35 @@ JWT
 히스토리 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_detail\_info" type="object" required=false %}
+{% api-method-parameter name="detail\_info" type="object" required=false %}
 민감정보 이름/성별/생년월일/전화번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="adult\_auth\_check" type="string" required=false %}
+{% api-method-parameter name="adult\_check" type="string" required=false %}
 성인인증 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="personal\_auth\_check" type="string" required=false %}
+{% api-method-parameter name="personal\_check" type="string" required=false %}
 본인인증 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_child\_check" type="string" required=false %}
+{% api-method-parameter name="child\_check" type="string" required=false %}
 14세 미만 체크 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_level" type="string" required=false %}
+{% api-method-parameter name="level" type="integer" required=false %}
 회원 등급 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_status" type="string" required=false %}
+{% api-method-parameter name="status" type="integer" required=false %}
 회원상태 유효/휴면/탈퇴 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_pwd" type="string" required=false %}
+{% api-method-parameter name="pwd" type="string" required=false %}
 비밀번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="member\_nick" type="string" required=true %}
+{% api-method-parameter name="nick" type="string" required=false %}
 닉네임 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -209,29 +217,29 @@ JWT
 
 ```text
 {
-    "member_nick": "수아짱",
-    "member_pwd" : "1234",
-    "member_status" : 1,   
-    "member_level" : 1,    
-    "member_child_check" : 0,    
-    "member_AD_check" : 1,
-    "personal_auth_check" : 1,
-    "adult_auth_check" : 1,
-    "member_detail_info" : {
+    "nick": "수아짱",
+    "pwd" : "1234",
+    "status" : 1,   
+    "level" : 1,    
+    "child_check" : 0,    
+    "ad_check" : 1,
+    "personal_check" : 1,
+    "adult_check" : 1,
+    "detail_info" : {
                     "name" : "김지훈",
                     "ismale" : 1,
                     "birthday" : YYYY-MM-DD,
                     "phoneno" : "0000000000",
                 },                
     "history" : {
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }    
 }
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/member/account/:UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/member/account/:member\_uuid" %}
 {% api-method-summary %}
 회원정보 호출 
 {% endapi-method-summary %}
@@ -257,31 +265,31 @@ JWT
 
 ```
 {
-    "rstCode": 200,
-    "member_email": "nob98@naver.com",
+    "member_uuid": UUID,
+    "email": "nob98@naver.com",
     "email_auth_check": 1,
-    "member_nick": "수아짱",
-    "member_pwd" : "1234",
-    "member_status" : 1,   
-    "member_level" : 1,    
-    "member_child_check" : 0,    
-    "member_AD_check" : 1,
+    "nick": "수아짱",
+    "pwd" : "1234",
+    "status" : 0,   
+    "level" : 1,    
+    "child_check" : 0,    
+    "ad_check" : 1,
     "check_date" : {
                     "join_date" : YYYY-MM-DD hh:mm:ss,
                     "login_date" : YYYY-MM-DD hh:mm:ss,
                     "password_date" : YYYY-MM-DD hh:mm:ss
                     },
-    "personal_auth_check" : 1,
-    "adult_auth_check" : 1,
-    "member_sns_check" : 0,
-    "member_detail_info" : {
+    "personal_check" : 1,
+    "adult_check" : 1,
+    "sns_check" : 0,
+    "detail_info" : {
                     "name" : "김지훈",
                     "ismale" : 1,
                     "birthday" : YYYY-MM-DD,
                     "phoneno" : "0000000000",
                 },                
     "history" : {
-                    "history_code" : 1,
+                    "history_memo" : 1,
                     "history_date" : YYYY-MM-DD hh:mm:ss,
                     "history_manager" : "SU"
                 }    
@@ -296,7 +304,7 @@ JWT
 https://api.tikita.ca/v1/member/account/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/account/checkdate/:UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/account/checkdate/:member\_uuid" %}
 {% api-method-summary %}
 최종로그인/비밀번호 변경일 업데이트 
 {% endapi-method-summary %}

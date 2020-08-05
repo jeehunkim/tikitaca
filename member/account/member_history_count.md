@@ -22,27 +22,27 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="STOPED\_COUNT" type="integer" required=false %}
+{% api-method-parameter name="stoped" type="integer" required=false %}
 :정지횟수 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="WARNING\_COUNT" type="integer" required=false %}
+{% api-method-parameter name="warning" type="integer" required=false %}
 :경고횟수 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="HOT\_COUNT" type="integer" required=false %}
+{% api-method-parameter name="hot" type="integer" required=false %}
 :핫게/롱런 등 count 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="REPLY" type="object" required=false %}
+{% api-method-parameter name="reply" type="object" required=false %}
 :작성/삭제/좋아요 등 count 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="PUBLISH" type="object" required=false %}
+{% api-method-parameter name="publish" type="object" required=false %}
 작성/삭제/좋아요 등 count 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="MEMBER\_UUID" type="string" required=true %}
+{% api-method-parameter name="member\_uuid" type="string" required=true %}
 :회원 고유 UUID 
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -67,32 +67,31 @@ Cake successfully retrieved.
 
 ```text
 {
-    "UUID": UUID,
-    "MEMBER_UUID": "b948e2be-9b7a-4963-bcff-34cee7c2e38a",
-    "PUBLISH" : {
-                    "write_count" : 0,
-                    "delete_count" : 0,
+    "member_uuid": "b948e2be-9b7a-4963-bcff-34cee7c2e38a",
+    "publish" : {
+                    "write" : 0,
+                    "delete" : 0,
                     "save_good" : 0,
                     "save_bad" : 0,
                     "gave_good" : 0,
                     "gave_bad" : 0,
                     "admin_del" : 0,
                     },
-    "REPLY" : {
-                    "write_count" : 0,
-                    "delete_count" : 0,
+    "reply" : {
+                    "write" : 0,
+                    "delete" : 0,
                     "save_good" : 0,
                     "save_bad" : 0,
                     "gave_good" : 0,
                     "gave_bad" : 0,
                     "admin_del" : 0,
                     },
-    "WARNING_COUNT" : 1,
-    "STOPED_COUNT" : 0
+    "warning" : 1,
+    "stoped" : 0
 }
 ```
 
-{% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/history-count/:MEMBER\_UUID" %}
+{% api-method method="patch" host="https://api.tikita.ca" path="/v1/member/history-count/:member\_uuid" %}
 {% api-method-summary %}
 게시글 카운트 업데이트 
 {% endapi-method-summary %}
@@ -110,11 +109,11 @@ JWT
 {% endapi-method-path-parameters %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="DETAIL\_COUNT" type="string" required=false %}
+{% api-method-parameter name="detail" type="string" required=false %}
 write\_count,delete\_count...
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="KIND\_OF\_COUNT" type="string" required=false %}
+{% api-method-parameter name="kind" type="string" required=false %}
 PUBLISH/REPLY...
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
@@ -139,14 +138,14 @@ PUBLISH/REPLY...
 
 ```text
 {
-    "KIND_OF_COUNT": "PUBLISH",
-    "DETAIL_COUNT" : "delete_count"
+    "kind": "publish",
+    "detail" : "write"
 }
 ```
 
-{% api-method method="get" host="https://api.tikita.ca" path="/v1/member/history-count/:MEMBER\_UUID" %}
+{% api-method method="get" host="https://api.tikita.ca" path="/v1/member/history-count/:member\_uuid" %}
 {% api-method-summary %}
-:게시글 카운트 정보 호출 
+게시글 카운트 정보 호출 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -170,29 +169,27 @@ JWT
 
 ```
 {
-    "rstCode": 200,
-    "UUID": UUID,
-    "MEMBER_UUID": "b948e2be-9b7a-4963-bcff-34cee7c2e38a",
-    "PUBLISH" : {
-                    "write_count" : 0,
-                    "delete_count" : 0,
+    "member_uuid": "b948e2be-9b7a-4963-bcff-34cee7c2e38a",
+    "publish" : {
+                    "write" : 0,
+                    "delete" : 0,
                     "save_good" : 0,
                     "save_bad" : 0,
                     "gave_good" : 0,
                     "gave_bad" : 0,
                     "admin_del" : 0,
                     },
-    "REPLY" : {
-                    "write_count" : 0,
-                    "delete_count" : 0,
+    "reply" : {
+                    "write" : 0,
+                    "delete" : 0,
                     "save_good" : 0,
                     "save_bad" : 0,
                     "gave_good" : 0,
                     "gave_bad" : 0,
                     "admin_del" : 0,
                     },
-    "WARNING_COUNT" : 1,
-    "STOPED_COUNT" : 0
+    "warning" : 1,
+    "stoped" : 0
 }
 ```
 {% endapi-method-response-example %}

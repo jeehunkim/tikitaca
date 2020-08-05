@@ -1,7 +1,7 @@
 # API
 
 {% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+ API 기본설계 방향 
 {% endhint %}
 
 1. URI는 정보의 자원을 표현해야 한다.

@@ -26,7 +26,7 @@ JWT
 히스토리 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="sort\_no" type="integer" required=false %}
+{% api-method-parameter name="sort\_no" type="integer" required=true %}
 노출순서 
 {% endapi-method-parameter %}
 
@@ -34,7 +34,7 @@ JWT
 사용유무 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="regist\_date" type="string" required=false %}
+{% api-method-parameter name="regist\_date" type="string" required=true %}
 생성일 
 {% endapi-method-parameter %}
 
