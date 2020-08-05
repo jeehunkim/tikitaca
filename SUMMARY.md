@@ -24,17 +24,19 @@
 
 ## GALLERY
 
+* [META](gallery/meta/README.md)
+  * [META\_INFO](gallery/meta/meta_info.md)
 * [CONTENT](gallery/content/README.md)
   * [GALLERY\_HASHTAG](gallery/content/gallery_hashtag.md)
   * [GALLERY\_GOODBAD](gallery/content/gallery_goodbad.md)
   * [GALLERY\_REPLY](gallery/content/gallery_reply.md)
   * [GALLERY\_POLL](gallery/content/gallery_poll.md)
   * [GALLERY\_BOARD](gallery/content/gallery_board.md)
-* [META\_INFO](gallery/meta_info.md)
 
 ## BOARD
 
-* [BOARD\_POLICE](board/board_police.md)
-* [BOARD\_NOTICE](board/board_notice.md)
-* [BOARD\_INQUIRY](board/board_inquiry.md)
+* [BOARD](board/board/README.md)
+  * [BOARD\_INQUIRY](board/board/board_inquiry.md)
+  * [BOARD\_NOTICE](board/board/board_notice.md)
+  * [BOARD\_POLICE](board/board/board_police.md)
 
