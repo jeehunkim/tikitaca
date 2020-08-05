@@ -1,25 +1,17 @@
 # API
 
-## Getting Super Powers
-
-Becoming a super hero is a fairly straight forward process:
-
-```
-$ give me super-powers
-```
-
 {% hint style="info" %}
  Super-powers are granted randomly so please submit an issue if you're not happy with yours.
 {% endhint %}
 
-Once you're strong enough, save the world:
-
-{% code title="hello.sh" %}
-```bash
-# Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
-{% endcode %}
-
-
+1. URI는 정보의 자원을 표현해야 한다.
+2. 자원에 대한 행위는 HTTP Method\(GET, POST, PUT, DELETE\)로 표현한다.
+3. 슬래시 구분자\(/\)는 계층 관계를 나타내는 데 사용한다.
+4. URI 마지막 문자로 슬래시\(/\)를 포함하지 않는다.
+5. 하이픈\(-\)은 URI 가독성을 높이는데 사용된다.
+6. 밑줄\(\_\)은 URI에 사용하지 않는다.
+7. URI 경로에는 소문자가 적합하다.
+8. 파일 확장자는 URI에 포함시키지 않는다.
+9. REST API에서는 메시지 바디 내용의 포맷을 나타내기 위한 파일 확장자를 URI 안에 포함시키지 않습니다. Accept header를 사용하도록 합시다.
+10. Content-Type = application/json
 
