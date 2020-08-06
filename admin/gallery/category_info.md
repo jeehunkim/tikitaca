@@ -51,12 +51,12 @@ JWT
 {% api-method-response %}
 {% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
-Cake successfully retrieved.
+HTTP/1.1 201 OK
 {% endapi-method-response-example-description %}
 
 ```
 {
-    "rstCode": "1",
+    "rst_code": "0"
     "rstMsg": "갤러리 카테고리 정보 등록 되었습니다"
 }
 ```

@@ -23,11 +23,22 @@
 | 201 | POST, PUT |  |
 | 204 | DELETE |  |
 
-{% hint style="warning" %}
-200계열에서의 RETURN\_CODE는 포함하지 않는다.
+```text
+HTTP/1.1 200 OK
+{
+  "rst_code": 0,
+  "rst_msg": "",
+  "user_name": "nob98"
+}
+```
 
-400계열서의 RETURN\_CODE는 별도로 작성한다.
-{% endhint %}
+```text
+HTTP/1.1 201 OK
+```
+
+```text
+HTTP/1.1 204 OK
+```
 
 | CODE | RST\_CODE | 설명  |
 | :--- | :--- | :--- |
