@@ -55,7 +55,6 @@
 ```text
 HTTP/1.1 200 OK
 {
-  "rst_code": 0,
   "rst_msg": "",
   "user_name": "nob98"
 }

@@ -43,7 +43,7 @@ JWT
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="category\_code" type="string" required=true %}
-카테고리 코드 
+카테고
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -51,14 +51,11 @@ JWT
 {% api-method-response %}
 {% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
-HTTP/1.1 201 OK
+
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rst_code": "0"
-    "rstMsg": "갤러리 카테고리 정보 등록 되었습니다"
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -131,8 +128,9 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "1"
+  "rst_msg": "카테고리정보가 수정되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -179,8 +177,8 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "1",
     "category_code": "AE",
     "category_name": "유머 ",
     "make_date" : YYYY-MM-DD hh:mm:ss,
