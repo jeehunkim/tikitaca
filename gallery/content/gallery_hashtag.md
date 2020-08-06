@@ -41,16 +41,13 @@ hashtag
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "해시태그 등록 되었습니다. "
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

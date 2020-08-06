@@ -41,15 +41,14 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "투표가 정상적으로 등록되었습니다. "
+    "rst_msg": "투표가 정상적으로 등록되었습니다. "
 }
 ```
 {% endapi-method-response-example %}
@@ -96,8 +95,9 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
+
 {
-    "rstCode": 200,
     "total_poll_count": 100,
     "detail_poll_count":{
                             "poll_number_1": 30,

@@ -77,16 +77,13 @@ VS전용 경쟁항목수/항목타이틀 등
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "게시글이 등록 되었습니다. "
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -203,8 +200,7 @@ VS전용
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "게시글이 수 되었습니다. "
+    "rst_msg": "게시글이 수 되었습니다. "
 }
 ```
 {% endapi-method-response-example %}
@@ -255,7 +251,6 @@ JWT
 
 ```
 {
-    "rstCode": 200,
     "content_flag": 0,
     "fixed_flag": 0,    
     "title": "빨간당",

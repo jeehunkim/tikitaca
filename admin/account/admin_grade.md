@@ -41,29 +41,13 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "관리자 등급이 등록되었습니다."
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "rstCode": "403",
-    "rstMsg": "권한없음 "
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -124,21 +108,7 @@ jwt
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "관리자 코드/등급명이 변경되었습니다."
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "rstCode": "403",
-    "rstMsg": "권한없음 "
+    "rst_msg": "관리자 코드/등급명이 변경되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -190,8 +160,7 @@ JWT
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "관리자 코드가 삭제되었습니다."
+    "rst_msg": "관리자 코드/등급명이 삭제 되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -233,9 +202,8 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
-/* example */
+HTTP/1.1 200 OK
 {
-    "rstCode" : 200,
     "grade_uuid" : UUID
     "grade_code" : "SU",
     "grade_name" : "최고관리자",
@@ -282,7 +250,7 @@ select * from "tables" where grade_uuid = 'b948e2be-9b7a-4963-bcff-34cee7c2e38a'
 {% endapi-method-response-example-description %}
 
 ```
-/* example */
+HTTP/1.1 200 OK
 {
     "grade_uuid" : UUID
     "grade_code" : "SU",

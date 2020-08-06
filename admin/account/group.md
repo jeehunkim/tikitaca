@@ -49,29 +49,13 @@ history
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "소속 정보가 입력되었습니다."
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
-
-```
-{
-    "rstCode": "403",
-    "rstMsg": "권한없"
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -146,22 +130,9 @@ jwt
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "200",
-    "rstMsg": "소속 정보가 변경되었습니다."
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "rstCode": "403",
-    "rstMsg": "권한없음 "
+  "rst_msg": "관리자 소속항목 수정되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -213,22 +184,9 @@ jwt
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "200",
-    "rstMsg": "소속 정보가 삭되었습니다."
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "rstCode": "403",
-    "rstMsg": "권한없음 "
+  "rst_msg": "관리자 소속항목이 삭되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -278,7 +236,6 @@ https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 ```
 /* example */
 {
-    "rstCode": 200,
     "part_Code": "P-00001",
     "part_Name": "개발부",
     "registDate": YYYY-MM-DD hh:mm:ss,
@@ -297,19 +254,6 @@ https://api.tikita.ca/v1/admin/member/group/b948e2be-9b7a-4963-bcff-34cee7c2e38a
 }
 
 
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=403 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-{
-    "rstCode": "403",
-    "rstMsg": "권한없음 "
-}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

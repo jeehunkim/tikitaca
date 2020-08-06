@@ -81,16 +81,13 @@ VS갤러리의 1:1일 경우 찬/반/중립 선택시
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "게시글이 등록 되었습니다. "
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -188,8 +185,7 @@ VS갤러리의 1:1일 경우 찬/반/중립 선택시
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "댓글이 수정 되었습니다. "
+    "rst_msg": "댓글이 수정 되었습니다. "
 }
 ```
 {% endapi-method-response-example %}
@@ -237,7 +233,6 @@ JWT
 
 ```
 {
-    "rstCode": 200,
     "gallery_UUID": UUID,
     "content_UUID": UUID,    
     "reply_UUID": UUID,        

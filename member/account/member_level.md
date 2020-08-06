@@ -47,9 +47,7 @@ Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": 200
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -112,8 +110,7 @@ Cake successfully retrieved.
 
 ```
 {
-    "rstCode": 200,
-    "rstMsg": "수정되었습니다"
+    "rst_msg": "수정되었습니다"
 }
 ```
 {% endapi-method-response-example %}

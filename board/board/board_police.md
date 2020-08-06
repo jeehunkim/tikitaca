@@ -65,16 +65,13 @@ This endpoint allows you to get free cakes.
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "게시글(댓글)이 신고 되었습니다다."
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -142,7 +139,6 @@ Cake successfully retrieved.
 
 ```
 {
-    "rstCode": 200,
     "police_uuid" : UUID,
     "gallery_uuid" : UUID,
     "is_reply" : 0,
@@ -196,8 +192,7 @@ Cake successfully retrieved.
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "신고글에 대한 처리내용이 등록되었습니다."
+    "rst_msg": "신고글에 대한 처리내용이 등록되었습니다."
 }
 ```
 {% endapi-method-response-example %}

@@ -49,16 +49,13 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "문의 유형 등록되었습니다."
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -126,9 +123,9 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "200",
-    "rstMsg": "문의유형이 수정 되었습니다."
+  "rst_msg": "문의유형이 수정 되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -174,9 +171,8 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
-/* example */
+HTTP/1.1 200 OK
 {
-    "rstCode": 200,
     "inquiry_title" : "과금관련 ",
     "register" : "SU",
     "regist_date" : YYYY-MM-DD hh:mm:ss,
@@ -224,7 +220,8 @@ https://api.tikita.ca/v1/admin/inquiry/category/b948e2be-9b7a-4963-bcff-34cee7c2
 {% endapi-method-response-example-description %}
 
 ```
-/* example */
+HTTP/1.1 200 OK
+
 [
 {
     "inquiry_title" : "과금관련 ",

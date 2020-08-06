@@ -85,16 +85,13 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "회 정보가 입력되었습니다."
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -247,8 +244,7 @@ JWT
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "회원 정보가 수되었습니다."
+    "rst_msg": "회원 정보가 수되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -305,6 +301,7 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
     "member_uuid": UUID,
     "email": "nob98@naver.com",
@@ -381,8 +378,7 @@ JWT
 
 ```
 {
-    "rstCode": "200",
-    "rstMsg": "날짜가 업데이트 되었습니다."
+    "rst_msg": "날짜가 업데이트 되었습니다."
 }
 ```
 {% endapi-method-response-example %}
@@ -390,9 +386,12 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% hint style="info" %}
-check\_job  - 0 : 로그인, 1 : 비밀번호 
-{% endhint %}
+> 기본키
+
+| check\_job | 0 |
+| :--- | :--- |
+| 로그인  | 0 |
+| 비밀번호  | 1 |
 
 ```text
 {

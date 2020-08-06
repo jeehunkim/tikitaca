@@ -65,16 +65,13 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "갤러리가 생성 되었습니다. "
-}
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -174,7 +171,10 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
-
+HTTP/1.1 200 OK
+{
+  "rst_msg": "갤러리 정보가 수정되었습니다."
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -229,7 +229,6 @@ JWT
 
 ```
 {
-    "rstCode": "200",
     "gallery_UUID": UUID,
     "view_sort": 0,
     "gallery_name": "빨간당",

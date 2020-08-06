@@ -48,8 +48,8 @@
 
 | CODE | METHOD | BODY |
 | :--- | :--- | :--- |
-| 200 | GET | OK |
-| 201 | POST, PUT |  |
+| 200 | GET, PUT, PATCH | OK |
+| 201 | POST |  |
 | 204 | DELETE |  |
 
 ```text

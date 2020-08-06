@@ -63,10 +63,7 @@ Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "1",
-    "rstMsg": "계정이 등록 되었습니다"
-}   
+HTTP/1.1 201 Created
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -151,10 +148,10 @@ jwt
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "1",
-    "rstMsg": "계정정보가 수정 되었습니다"
-}  
+  "rst_msg": "계정보가 수정되었습니다."
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -204,16 +201,16 @@ jwt
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=204 %}
+{% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}
 
 ```
+HTTP/1.1 200 OK
 {
-    "rstCode": "1",
-    "rstMsg": "계정이 삭제 되었습니다"
-}  
+  "rst_msg": "계정정보가 삭되었습니다."
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -267,8 +264,9 @@ jwt
 
 ```
 /* example */
+HTTP/1.1 200 OK
+
 {
-    "rstCode" : 200,
     "account_ID": "nob98",
     "account_pwd": "1234",
     "account_level": "SU",

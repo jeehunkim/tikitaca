@@ -53,16 +53,13 @@ JWT
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=201 %}
 {% api-method-response-example-description %}
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
 ```
-{
-    "rstCode": "200",
-    "rstMsg": "추천/비추 정보가 정상적으로 등록되었습니다. "
-}
+HTTP/1.1 201 Created
 
 /*
     정상일 경우
