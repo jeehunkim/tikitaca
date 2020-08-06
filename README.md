@@ -118,6 +118,8 @@ HTTP/1.1 405 Method Not Allowed
 }
 ```
 
+### 12. 공통으로 사용하는 JSON 키값에 대한 정리.
+
 | 기본 key name | value |
 | :--- | :--- |
 | 작성자/등록자/ | register |
