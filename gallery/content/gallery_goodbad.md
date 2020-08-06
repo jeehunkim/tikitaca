@@ -75,11 +75,23 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% hint style="info" %}
-is\_reply - 0 : 게시글, 1 : 댓글 
+> 기본키
 
-action\_flag - 0 : 비추, 1 : 추천 
-{% endhint %}
+{% tabs %}
+{% tab title="is\_reply" %}
+| default | 0 |
+| :--- | :--- |
+| 게시글  | 0 |
+| 댓글  | 1 |
+{% endtab %}
+
+{% tab title="action\_flag" %}
+| default | 1 |
+| :--- | :--- |
+| 비추  | 0 |
+| 추천  | 1 |
+{% endtab %}
+{% endtabs %}
 
 ```text
 {

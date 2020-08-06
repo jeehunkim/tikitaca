@@ -81,6 +81,15 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+| inquiry\_flag | 0 |
+| :--- | :--- |
+| 등록  | 0 |
+| 처리중  | 1 |
+| 보류  | 2 |
+| 완료  | 3 |
+
 ```text
 {
     "inquiry_uuid" : "과금관련 ",

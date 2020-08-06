@@ -81,6 +81,15 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+| gallery\_status | 1 |
+| :--- | :--- |
+| 정상  | 0 |
+| 대기  | 1 |
+| 보류\(임시폐쇄\)  | 2 |
+| 폐쇄\(삭제\) | 3 |
+
 ```text
 {
     "gallery_uuid": UUID,

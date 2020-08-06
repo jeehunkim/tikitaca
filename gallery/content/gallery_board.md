@@ -93,11 +93,33 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% hint style="info" %}
-content\_flag - 0 : 공지, 1 : 일반, 2 : VS 
+> 기본키
 
-fixed\_flag - 0 : 기본, 1 : 상단 고정 
-{% endhint %}
+{% tabs %}
+{% tab title="content\_flag" %}
+| default | 0 |
+| :--- | :--- |
+| 일반 게시글  | 0 |
+| VS 게시글   | 1 |
+| 공지  | 2 |
+{% endtab %}
+
+{% tab title="fixed\_flag" %}
+| default | 0 |
+| :--- | :--- |
+| 기본  | 0 |
+| 상단고정  | 1 |
+{% endtab %}
+
+{% tab title="status\_flag" %}
+| default | 0 |
+| :--- | :--- |
+| 정상  | 0 |
+| 보류  | 1 |
+| 삭제  | 2 |
+| 관리자 삭제  | 3 |
+{% endtab %}
+{% endtabs %}
 
 ```text
 {

@@ -73,6 +73,14 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+| view\_flag | 0 |
+| :--- | :--- |
+| 게시  | 0 |
+| 보류  | 1 |
+| 삭제  | 2 |
+
 ```text
 {
     "notice_uuid": UUID,

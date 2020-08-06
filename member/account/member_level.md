@@ -56,6 +56,13 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+| is\_use | 1 |
+| :--- | :--- |
+| 사용안함  | 0 |
+| 사용  | 1 |
+
 ```text
 {
     "level_uuid": UUID,

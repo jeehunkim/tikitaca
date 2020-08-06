@@ -97,6 +97,26 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+{% tabs %}
+{% tab title="vs\_reply" %}
+| default | 0 |
+| :--- | :--- |
+| 찬성  | 0 |
+| 반대  | 1 |
+| 중 | 2 |
+{% endtab %}
+
+{% tab title="reply\_status" %}
+| default | 0 |
+| :--- | :--- |
+| 정 | 0 |
+| 삭제  | 1 |
+| 관리자삭제  | 2 |
+{% endtab %}
+{% endtabs %}
+
 ```text
 {
     "gallery_uuid": UUID,

@@ -81,9 +81,25 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% hint style="info" %}
-is\_reply - 0 : 게시글, 1 : 댓글
-{% endhint %}
+> 기본키
+
+{% tabs %}
+{% tab title="is\_reply" %}
+| default | 0 |
+| :--- | :--- |
+| 게시글  | 0 |
+| 댓글  | 1 |
+{% endtab %}
+
+{% tab title="status\_flag" %}
+| default | 0 |
+| :--- | :--- |
+| 등록  | 0 |
+| 처리중  | 1 |
+| 보류  | 2 |
+| 처리완료  | 3 |
+{% endtab %}
+{% endtabs %}
 
 ```text
 {
