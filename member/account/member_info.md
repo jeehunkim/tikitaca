@@ -101,6 +101,47 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+{% tabs %}
+{% tab title="email\_auth\_check" %}
+| default | 0 |
+| :--- | :--- |
+| 미인증  | 0 |
+| 인증  | 1 |
+{% endtab %}
+
+{% tab title="status" %}
+| default | 0 |
+| :--- | :--- |
+| 정상\(유효\) | 0 |
+| 휴면  | 1 |
+| 정지  | 2 |
+| 탈퇴  | 3 |
+{% endtab %}
+
+{% tab title="child\_check" %}
+| default | 0 |
+| :--- | :--- |
+| 14세 이상  | 0 |
+| 14세 미만  | 1 |
+{% endtab %}
+
+{% tab title="ad\_check" %}
+| default | 0 |
+| :--- | :--- |
+| 광고 수 거부  | 0 |
+| 광고 수신 동의  | 1 |
+{% endtab %}
+
+{% tab title="personal\_check" %}
+| default | 0 |
+| :--- | :--- |
+| 본인인증\(X\) | 0 |
+| 본인인증 완료  | 1 |
+{% endtab %}
+{% endtabs %}
+
 ```text
 {
     "member_uuid": UUID,

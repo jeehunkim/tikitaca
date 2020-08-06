@@ -73,6 +73,15 @@ Cake successfully retrieved.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+| account\_status | 0 |
+| :--- | :--- |
+| 대기  | 0 |
+| 정상  | 1 |
+| 보류  | 2 |
+| 삭제  | 3 |
+
 ```text
 {
     "account_uuid": UUID,

@@ -78,6 +78,13 @@ Could not find a cake matching this query.
 {% endapi-method-spec %}
 {% endapi-method %}
 
+> 기본키
+
+| is\_use | 1 |
+| :--- | :--- |
+| 사용안함  | 0 |
+| 사용  | 1 |
+
 ```text
 {
     "group_uuid": UUID,
