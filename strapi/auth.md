@@ -11,8 +11,13 @@ module.exports = {};
 
 Add Create
 
+```javascript
+const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+```
+
 {% code title="" %}
 ```javascript
+
 async create(ctx) {
         let entity;
         if (ctx.is('multipart')) {
