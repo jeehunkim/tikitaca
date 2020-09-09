@@ -1,4 +1,4 @@
-# auth
+# contentAuth
 
 ## /api/xxx/controllers/xxx.js
 

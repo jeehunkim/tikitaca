@@ -43,5 +43,6 @@
 
 ## STRAPI
 
-* [auth](strapi/auth.md)
+* [token](strapi/receive-jwt.md)
+* [contentAuth](strapi/auth.md)
 
