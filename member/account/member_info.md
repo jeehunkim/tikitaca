@@ -34,28 +34,12 @@ JWT
 민감정보 이름/성별/생년월일/전화번호 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="sns\_check" type="boolean" required=false %}
-회원구분 일반/SNS 
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="adult\_check" type="boolean" required=false %}
-성인인증 
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="personal\_check" type="boolean" required=false %}
-본인인증 
-{% endapi-method-parameter %}
-
 {% api-method-parameter name="check\_date" type="object" required=false %}
 가입일/최종로그인/비밀번호변경일 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="ad\_check" type="boolean" required=true %}
-이벤트/광고 등 수신동의 
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="child\_check" type="boolean" required=true %}
-14세 미만 체크 
+{% api-method-parameter name="check" type="boolean" required=false %}
+object
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="level" type="integer" required=true %}
@@ -72,10 +56,6 @@ JWT
 
 {% api-method-parameter name="nick" type="string" required=true %}
 닉네임 
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="email\_auth\_check" type="boolean" required=true %}
-이메일 인증 여부 
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="email" type="string" required=true %}
@@ -142,27 +122,29 @@ HTTP/1.1 201 Created
 ```text
 {
     "member_uuid": UUID,
-    "email": "nob98@naver.com",
-    "email_auth_check": 1,
+    "email": "nob98@naver.com",    
     "nick": "수아짱",
     "pwd" : "1234",
     "status" : 0,   
-    "level" : 1,    
-    "child_check" : 0,    
-    "ad_check" : 1,
+    "level" : 1,
     "check_date" : {
                     "join_date" : YYYY-MM-DD hh:mm:ss,
                     "login_date" : YYYY-MM-DD hh:mm:ss,
                     "password_date" : YYYY-MM-DD hh:mm:ss
-                    },
-    "personal_check" : 1,
-    "adult_check" : 1,
-    "sns_check" : 0,
+                },
+    "check" : {
+                    "child_check" : 0,    
+                    "email_auth_check": 1,
+                    "personal_check" : 1,
+                    "adult_check" : 1,
+                    "ad_check" : 1,
+                    "sns_check" : 0
+                },    
     "detail_info" : {
                     "name" : "김지훈",
                     "ismale" : 1,
                     "birthday" : YYYY-MM-DD,
-                    "phoneno" : "0000000000",
+                    "phoneno" : "0000000000"
                 },                
     "history" : {
                     "history_memo" : 1,
