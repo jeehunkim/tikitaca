@@ -120,7 +120,8 @@ HTTP/1.1 201 Created
 
 ```text
 {
-    "gallery_uuid": UUID,
+    "_id": UUID,
+    "meta_id": UUID
     "content_uuid": UUID,
     "content_flag": 0,
     "fixed_flag": 0,    
